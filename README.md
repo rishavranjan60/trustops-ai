@@ -40,3 +40,15 @@ TrustOps AI is a production-grade AI evaluation and MLOps platform for building,
 - Docker
 - Docker Compose
 - GitHub Actions
+
+### he README should explain:
+
+1. What TrustOps AI is
+2. Real-life problem it solves
+3. Features
+4. Tech stack
+5. Architecture
+6. How to run locally
+7. How to run with Docker
+8. Demo flow
+9. Future improvements
