@@ -68,3 +68,12 @@ jobs:
       - name: Import FastAPI app
         run: |
           python -c "from app.main import app; print('Backend app imported successfully')"
+      - name: Verify database connectivity
+        run: |
+          python - <<'PY'
+          from sqlalchemy import text
+          from app.db.database import engine
+          assert engine.dialect.driver == 'psycopg2'
+          with engine.connect() as connection:
+              assert connection.execute(text('SELECT 1')).scalar_one() == 1
+          PY
