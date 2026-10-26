@@ -99,18 +99,30 @@ Kubernetes helps you run and manage groups of applications that are packaged tog
 - GitHub Actions
 - CI/CD pipelines
 
-### he README should explain:
+## Run with Docker Compose
 
-1. What TrustOps AI is
-2. Real-life problem it solves
-3. Features
-4. Tech stack
-5. Architecture
-6. How to run locally
-7. How to run with Docker
-8. Demo flow
-9. Future improvements
+Install Docker with Compose support. For real Gemini calls, set `GEMINI_API_KEY` in your shell or in an uncommitted `.env` file at the repository root. The Compose configuration enables real LLM calls, which depend on provider access and quota.
 
+```bash
+docker compose up --build -d
+docker compose ps
+```
+
+Open the frontend at http://localhost:3000 and the API documentation at http://localhost:8000/docs. PostgreSQL is exposed on host port 5433; stop any other local database using that port first.
+
+To inspect startup problems:
+
+```bash
+docker compose logs backend frontend
+```
+
+To stop the stack while retaining database data:
+
+```bash
+docker compose down
+```
+
+The checked-in database password and JWT secret are development defaults. Replace them before using this configuration outside a local development environment.
 
 ### Demo Flow
 
